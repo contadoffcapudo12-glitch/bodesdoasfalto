@@ -106,6 +106,108 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// News Management System
+class NewsManager {
+    constructor() {
+        this.loadNews();
+    }
+
+    loadNews() {
+        const savedNews = localStorage.getItem('adminNews');
+        if (savedNews) {
+            const newsData = JSON.parse(savedNews);
+            this.displayNews(newsData);
+        }
+    }
+
+    displayNews(newsArray) {
+        const newsGrid = document.querySelector('.news-grid');
+        if (!newsGrid) return;
+
+        // Clear existing news
+        newsGrid.innerHTML = '';
+
+        // If no news from admin, show default news
+        if (!newsArray || newsArray.length === 0) {
+            this.showDefaultNews();
+            return;
+        }
+
+        // Sort news by date (newest first)
+        const sortedNews = newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Display up to 6 most recent news
+        const recentNews = sortedNews.slice(0, 6);
+        
+        recentNews.forEach(news => {
+            const newsItem = this.createNewsItem(news);
+            newsGrid.appendChild(newsItem);
+        });
+    }
+
+    createNewsItem(news) {
+        const article = document.createElement('article');
+        article.className = 'news-item';
+        
+        const formattedDate = this.formatDate(news.date);
+        
+        article.innerHTML = `
+            <div class="news-date">${formattedDate}</div>
+            <h3 class="news-title">${news.title}</h3>
+            <p class="news-excerpt">${news.excerpt}</p>
+            ${news.image ? `<div class="news-image"><img src="${news.image}" alt="${news.title}" loading="lazy"></div>` : ''}
+        `;
+        
+        return article;
+    }
+
+    formatDate(dateString) {
+        const date = new Date(dateString);
+        const months = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+    }
+
+    showDefaultNews() {
+        const newsGrid = document.querySelector('.news-grid');
+        if (!newsGrid) return;
+
+        newsGrid.innerHTML = `
+            <article class="news-item">
+                <div class="news-date">01 AGO 2024</div>
+                <h3 class="news-title">15 Anos da Subsede Litoral do Paraná</h3>
+                <p class="news-excerpt">Celebramos com orgulho mais um ano de estrada, fraternidade e liberdade ao lado dos valorosos irmãos do Bodes do Asfalto Litoral do Paraná.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-date">15 JUL 2024</div>
+                <h3 class="news-title">Encontro Regional dos Bodes</h3>
+                <p class="news-excerpt">Grande encontro reuniu irmãos de diversas subsedes para celebrar a união e compartilhar experiências na estrada.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-date">30 JUN 2024</div>
+                <h3 class="news-title">Ação Social Beneficente</h3>
+                <p class="news-excerpt">Os Bodes do Asfalto Litoral do Paraná realizaram mais uma ação social, distribuindo alimentos e agasalhos para famílias necessitadas.</p>
+            </article>
+        `;
+    }
+}
+
+// Initialize News Manager when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new NewsManager();
+});
+
+// Listen for storage changes to update news in real-time
+window.addEventListener('storage', (e) => {
+    if (e.key === 'adminNews') {
+        const newsManager = new NewsManager();
+    }
+});
+
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
@@ -529,6 +631,197 @@ if (navigator.hardwareConcurrency < 4 || navigator.deviceMemory < 4) {
     document.documentElement.style.setProperty('--animation-duration', '0.3s');
     document.documentElement.style.setProperty('--particle-count', '5');
 }
+
+// Enhanced Lazy Loading for Images with Progressive Loading
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                
+                // Add loading animation
+                img.style.filter = 'blur(5px)';
+                img.style.transition = 'filter 0.3s ease';
+                
+                // Create new image to preload
+                const newImg = new Image();
+                newImg.onload = () => {
+                    img.src = img.dataset.src;
+                    img.style.filter = 'blur(0)';
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                };
+                newImg.onerror = () => {
+                    img.style.filter = 'blur(0)';
+                    img.classList.add('error');
+                };
+                newImg.src = img.dataset.src;
+                
+                imageObserver.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+
+    images.forEach(img => {
+        img.classList.add('lazy');
+        imageObserver.observe(img);
+    });
+}
+
+// Smooth Scroll Enhancement
+function enhancedSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// Enhanced Loading States
+function addLoadingStates() {
+    // Add loading state to buttons
+    document.querySelectorAll('button, .btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (!this.classList.contains('loading')) {
+                this.classList.add('loading');
+                const originalText = this.textContent;
+                this.textContent = 'Carregando...';
+                
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                    this.textContent = originalText;
+                }, 2000);
+            }
+        });
+    });
+}
+
+// Progressive Web App Features
+function initPWAFeatures() {
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+    
+    // Install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        // Show install button if needed
+        const installBtn = document.getElementById('install-btn');
+        if (installBtn) {
+            installBtn.style.display = 'block';
+            installBtn.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        }
+    });
+}
+
+// Enhanced User Experience Features
+function enhanceUX() {
+    // Add focus management for accessibility
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            document.body.classList.add('keyboard-navigation');
+        }
+    });
+    
+    document.addEventListener('mousedown', () => {
+        document.body.classList.remove('keyboard-navigation');
+    });
+    
+    // Add smooth transitions for dynamic content
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.nodeType === 1) {
+                        node.style.opacity = '0';
+                        node.style.transform = 'translateY(20px)';
+                        node.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        
+                        requestAnimationFrame(() => {
+                            node.style.opacity = '1';
+                            node.style.transform = 'translateY(0)';
+                        });
+                    }
+                });
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
+
+// Performance Monitoring
+function monitorPerformance() {
+    // Monitor Core Web Vitals
+    if ('web-vitals' in window) {
+        const { getCLS, getFID, getFCP, getLCP, getTTFB } = window.webVitals;
+        
+        getCLS(console.log);
+        getFID(console.log);
+        getFCP(console.log);
+        getLCP(console.log);
+        getTTFB(console.log);
+    }
+    
+    // Monitor loading performance
+    window.addEventListener('load', () => {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page load time: ${loadTime}ms`);
+        
+        // Send analytics if needed
+        if (loadTime > 3000) {
+            console.warn('Page load time is slow');
+        }
+    });
+}
+
+// Initialize all enhancements
+document.addEventListener('DOMContentLoaded', () => {
+    lazyLoadImages();
+    enhancedSmoothScroll();
+    addLoadingStates();
+    initPWAFeatures();
+    enhanceUX();
+    monitorPerformance();
+});
 
 console.log('🏍️ Bodes do Asfalto - Subsede Litoral do Paraná - Website enhanced and ready to rock! 🏍⁠️');
 console.log('NÓS FAZEMOS POEIRA! 🔥');
