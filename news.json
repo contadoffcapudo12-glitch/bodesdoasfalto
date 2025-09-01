@@ -1,0 +1,48 @@
+{
+  "news": [
+    {
+      "id": "1",
+      "title": "15 Anos da Subsede Litoral do Paraná",
+      "excerpt": "Celebramos com orgulho mais um ano de estrada, fraternidade e liberdade ao lado dos valorosos irmãos do Bodes do Asfalto Litoral do Paraná.",
+      "content": "No dia 1º de agosto de 2024, a Subsede Litoral do Paraná dos Bodes do Asfalto completou 15 anos de história, fraternidade e paixão pelas duas rodas. Desde sua fundação em 2009, nossa subsede tem sido um marco na promoção da camaradagem entre motociclistas maçons da região litorânea do Paraná.\n\nAo longo desses anos, construímos uma família sólida baseada nos pilares fundamentais do nosso moto clube: hierarquia, disciplina e fraternidade. Cada membro contribuiu para fortalecer os laços que nos unem e para manter viva a essência dos Bodes do Asfalto.\n\nCelebramos não apenas os quilômetros percorridos, mas também as amizades construídas, os momentos compartilhados e o compromisso contínuo com os valores maçônicos que nos guiam. Que venham muitos mais anos de estrada, união e 'fazendo poeira' juntos!",
+      "date": "2024-08-01",
+      "author": "Coordenação Litoral PR",
+      "image": "",
+      "featured": true,
+      "category": "Aniversário",
+      "created_at": "2024-08-01T10:00:00Z",
+      "updated_at": "2024-08-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Encontro Regional dos Bodes",
+      "excerpt": "Grande encontro reuniu irmãos de diversas subsedes para celebrar a união e compartilhar experiências na estrada.",
+      "content": "O Encontro Regional dos Bodes do Asfalto foi um sucesso absoluto, reunindo irmãos de diversas subsedes em uma celebração épica da fraternidade e paixão pelas motocicletas.\n\nO evento contou com a participação de mais de 200 motociclistas, vindos de diferentes regiões do país. Durante os três dias de encontro, foram realizadas diversas atividades, incluindo passeios em grupo, palestras sobre segurança no trânsito, e momentos de confraternização que fortaleceram ainda mais os laços entre os irmãos.\n\nDestaque especial para a cerimônia de reconhecimento aos membros fundadores e para a apresentação dos novos projetos sociais que serão desenvolvidos em conjunto pelas subsedes participantes. O próximo encontro regional já está sendo planejado para 2025.",
+      "date": "2024-07-15",
+      "author": "Comissão Organizadora",
+      "image": "",
+      "featured": false,
+      "category": "Eventos",
+      "created_at": "2024-07-15T14:30:00Z",
+      "updated_at": "2024-07-15T14:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Ação Social Beneficente",
+      "excerpt": "Os Bodes do Asfalto Litoral do Paraná realizaram mais uma ação social, distribuindo alimentos e agasalhos para famílias necessitadas.",
+      "content": "Em mais uma demonstração do compromisso social que caracteriza os Bodes do Asfalto, a Subsede Litoral do Paraná realizou uma grande ação beneficente no último final de semana.\n\nA ação envolveu a arrecadação e distribuição de mais de 500 cestas básicas, 300 agasalhos e brinquedos para crianças em situação de vulnerabilidade social. O evento foi realizado em parceria com organizações locais e contou com a participação voluntária de todos os membros da subsede.\n\n'É gratificante poder retribuir à comunidade um pouco do que ela nos oferece', comentou o Coordenador da subsede. 'A filantropia é um dos pilares fundamentais da maçonaria, e nós, como Bodes do Asfalto, temos o compromisso de praticar a beneficência sempre que possível.'\n\nA próxima ação social já está sendo planejada para o período natalino, quando será realizada uma campanha de arrecadação de brinquedos para crianças carentes da região.",
+      "date": "2024-06-30",
+      "author": "Equipe Social",
+      "image": "",
+      "featured": false,
+      "category": "Ação Social",
+      "created_at": "2024-06-30T16:45:00Z",
+      "updated_at": "2024-06-30T16:45:00Z"
+    }
+  ],
+  "metadata": {
+    "last_updated": "2024-08-01T10:00:00Z",
+    "total_news": 3,
+    "version": "1.0"
+  }
+}

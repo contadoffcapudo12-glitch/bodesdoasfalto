@@ -3,12 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bodes do Asfalto - Subsede Litoral do Paraná</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Bodes do Asfalto - Subsede Litoral do Paraná | Maior Moto Clube Maçônico do Mundo</title>
+    <meta name="description" content="Bodes do Asfalto Subsede Litoral do Paraná - O maior moto clube maçônico do mundo. Fundado em 2009, promovemos fraternidade, hierarquia e disciplina entre motociclistas maçons.">
+    <meta name="keywords" content="bodes do asfalto, moto clube, maçonaria, litoral paraná, motociclistas, fraternidade, hierarquia, disciplina">
+    <meta name="author" content="Bodes do Asfalto Litoral do Paraná">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bodesdoasfalto-litoral.com.br">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bodesdoasfalto-litoral.com.br">
+    <meta property="og:title" content="Bodes do Asfalto - Subsede Litoral do Paraná">
+    <meta property="og:description" content="O maior moto clube maçônico do mundo. Fundado em 2009, promovemos fraternidade, hierarquia e disciplina entre motociclistas maçons.">
+    <meta property="og:image" content="https://bodesdoasfalto-litoral.com.br/bodes_do_asfalto_logo_litoral_refined.png">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bodesdoasfalto-litoral.com.br">
+    <meta property="twitter:title" content="Bodes do Asfalto - Subsede Litoral do Paraná">
+    <meta property="twitter:description" content="O maior moto clube maçônico do mundo. Fundado em 2009, promovemos fraternidade, hierarquia e disciplina entre motociclistas maçons.">
+    <meta property="twitter:image" content="https://bodesdoasfalto-litoral.com.br/bodes_do_asfalto_logo_litoral_refined.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="bodes_do_asfalto_logo_litoral_refined.png">
+    <link rel="apple-touch-icon" href="bodes_do_asfalto_logo_litoral_refined.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff4444">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bodes do Asfalto">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Bodes do Asfalto - Subsede Litoral do Paraná",
+        "description": "O maior moto clube maçônico do mundo",
+        "url": "https://bodesdoasfalto-litoral.com.br",
+        "logo": "https://bodesdoasfalto-litoral.com.br/bodes_do_asfalto_logo_litoral_refined.png",
+        "foundingDate": "2009-08-01",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Paraná",
+            "addressCountry": "BR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-41-99167-1903",
+            "contactType": "customer service",
+            "email": "faccaolitoralparana@gmail.com"
+        },
+        "sameAs": [
+            "https://bodesdoasfalto-litoral.com.br"
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <!-- PWA Install Button -->
+    <button id="install-btn" aria-label="Instalar aplicativo">📱 Instalar App</button>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
@@ -27,7 +98,7 @@
                         <a href="#historia" class="nav-link">História</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#comando" class="nav-link">Comando</a>
+                        <a href="#comando" class="nav-link">COORDENAÇÃO </a>
                     </li>
                     <li class="nav-item">
                         <a href="#galeria" class="nav-link">Galeria</a>
@@ -49,9 +120,9 @@
     </header>
 <!-- Hero Section -->
 <section id="inicio" class="hero">
-    <div class="hero-content">
+    <div class="hero-content" id="main-content">
         <div class="hero-logo glow float-animation">
-            <img src="bodes_do_asfalto_logo_litoral_refined.png" alt="Bodes do Asfalto Litoral" class="hero-logo-img">
+            <img src="bodes_do_asfalto_logo_litoral_refined.png" alt="Bodes do Asfalto Litoral" class="hero-logo-img" data-tooltip="Logo oficial dos Bodes do Asfalto">
         </div>
         <h1 class="hero-title animated-gradient">BODES DO ASFALTO</h1>
         <h2 class="hero-subtitle">SUBSEDE LITORAL DO PARANÁ</h2>
@@ -61,7 +132,7 @@
 
     <!-- Bode decorativo à direita -->
     <div class="hero-decoration">
-        <img src="bode_sem_fundo.png" alt="Bode Decorativo" class="decorative-goat">
+        <img src="bode_sem_fundo.png" alt="Bode Decorativo" class="decorative-goat" data-tooltip="Mascote dos Bodes do Asfalto">
     </div>
 
     <div class="hero-overlay"></div>
@@ -235,6 +306,10 @@
             <div class="section-header">
                 <h2 class="section-title">NOTÍCIAS</h2>
                 <p class="section-subtitle">Últimas novidades da Subsede</p>
+                <a href="noticias.html" class="news-button">
+                    <span>Acompanhe as notícias</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
             <div class="news-grid">
                 <article class="news-item">
@@ -300,6 +375,9 @@
                 </div>
                 <div class="footer-text">
                     <p>&copy; 2025 Bodes do Asfalto - Subsede Litoral do Paraná. Todos os direitos reservados.</p>
+                    <div class="admin-access">
+                        <a href="admin.html" class="admin-link" title="Acesso Administrativo">⚙️ Admin</a>
+                    </div>
                     <p class="footer-motto">NÓS FAZEMOS POEIRA</p>
                 </div>
             </div>

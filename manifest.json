@@ -1,0 +1,111 @@
+{
+  "name": "Bodes do Asfalto - Subsede Litoral do Paraná",
+  "short_name": "Bodes do Asfalto",
+  "description": "Site oficial da Subsede Litoral do Paraná do Moto Clube Bodes do Asfalto. Conheça nossa história, comando e participe de nossos eventos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff4444",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["lifestyle", "social", "entertainment"],
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Página inicial do Bodes do Asfalto"
+    },
+    {
+      "src": "images/screenshot-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Versão mobile do site"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Sobre Nós",
+      "short_name": "Sobre",
+      "description": "Conheça a história dos Bodes do Asfalto",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "images/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Comando",
+      "short_name": "Comando",
+      "description": "Conheça nosso comando",
+      "url": "/#command",
+      "icons": [
+        {
+          "src": "images/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "description": "Entre em contato conosco",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "images/logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

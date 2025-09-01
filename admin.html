@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Bodes do Asfalto</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="bodes_do_asfalto_logo_national_refined.png" alt="Logo Bodes do Asfalto" class="login-logo">
+                <h1>Painel Administrativo</h1>
+                <p>Acesso restrito - Digite o token de acesso</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password" id="tokenInput" placeholder="Token de acesso" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Entrar
+                </button>
+                <div id="loginError" class="error-message" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Painel Principal -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <img src="bodes_do_asfalto_logo_national_refined.png" alt="Logo" class="header-logo">
+                <h1>Painel Administrativo</h1>
+            </div>
+            <div class="header-right">
+                <span class="admin-user">Administrador</span>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#" data-section="news">
+                            <i class="fas fa-newspaper"></i>
+                            Gerenciar Notícias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="add-news">
+                            <i class="fas fa-plus"></i>
+                            Adicionar Notícia
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-section="media">
+                            <i class="fas fa-images"></i>
+                            Galeria de Mídia
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Seção: Gerenciar Notícias -->
+            <section id="newsSection" class="content-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-newspaper"></i> Gerenciar Notícias</h2>
+                    <button id="addNewsBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Nova Notícia
+                    </button>
+                </div>
+                
+                <div class="news-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-newspaper"></i>
+                        <div class="stat-info">
+                            <span class="stat-number" id="totalNews">0</span>
+                            <span class="stat-label">Total de Notícias</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-eye"></i>
+                        <div class="stat-info">
+                            <span class="stat-number" id="publishedNews">0</span>
+                            <span class="stat-label">Publicadas</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-edit"></i>
+                        <div class="stat-info">
+                            <span class="stat-number" id="draftNews">0</span>
+                            <span class="stat-label">Rascunhos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-filters">
+                    <div class="filter-group">
+                        <input type="text" id="searchNews" placeholder="Buscar notícias..." class="search-input">
+                        <select id="statusFilter" class="filter-select">
+                            <option value="all">Todos os Status</option>
+                            <option value="published">Publicadas</option>
+                            <option value="draft">Rascunhos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="news-list" id="newsList">
+                    <!-- Lista de notícias será carregada aqui -->
+                </div>
+            </section>
+
+            <!-- Seção: Adicionar/Editar Notícia -->
+            <section id="addNewsSection" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-plus"></i> <span id="formTitle">Adicionar Nova Notícia</span></h2>
+                    <button id="backToNewsBtn" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </button>
+                </div>
+
+                <form id="newsForm" class="news-form">
+                    <input type="hidden" id="newsId">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newsTitle">Título da Notícia *</label>
+                            <input type="text" id="newsTitle" required maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="newsStatus">Status</label>
+                            <select id="newsStatus">
+                                <option value="published">Publicada</option>
+                                <option value="draft">Rascunho</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsExcerpt">Resumo/Descrição *</label>
+                        <textarea id="newsExcerpt" rows="3" required maxlength="200" placeholder="Breve descrição da notícia..."></textarea>
+                        <small class="char-count">0/200 caracteres</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsContent">Conteúdo Completo *</label>
+                        <textarea id="newsContent" rows="10" required placeholder="Escreva o conteúdo completo da notícia..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsImage">Imagem da Notícia</label>
+                        <div class="image-upload-area" id="imageUploadArea">
+                            <input type="file" id="newsImage" accept="image/*" style="display: none;">
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Clique para selecionar uma imagem</p>
+                                <small>Formatos aceitos: JPG, PNG, GIF (máx. 5MB)</small>
+                            </div>
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="removeImage">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelBtn" class="btn btn-secondary">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            <span id="submitBtnText">Salvar Notícia</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Seção: Galeria de Mídia -->
+            <section id="mediaSection" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-images"></i> Galeria de Mídia</h2>
+                    <button id="uploadMediaBtn" class="btn btn-primary">
+                        <i class="fas fa-upload"></i>
+                        Upload de Mídia
+                    </button>
+                </div>
+
+                <div class="media-grid" id="mediaGrid">
+                    <!-- Galeria de mídia será carregada aqui -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Confirmar Ação</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Tem certeza que deseja realizar esta ação?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="modalCancel" class="btn btn-secondary">Cancelar</button>
+                <button id="modalConfirm" class="btn btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

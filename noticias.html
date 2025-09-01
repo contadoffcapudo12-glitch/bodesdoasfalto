@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Notícias - Bodes do Asfalto Litoral do Paraná</title>
+    <meta name="description" content="Acompanhe as últimas notícias e novidades da Subsede Litoral do Paraná dos Bodes do Asfalto.">
+    <meta name="keywords" content="bodes do asfalto, notícias, litoral paraná, moto clube, maçonaria">
+    <meta name="author" content="Bodes do Asfalto Litoral do Paraná">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="bodes_do_asfalto_logo_litoral_refined.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="noticias-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="bodes_do_asfalto_logo_litoral_refined.png" alt="Bodes do Asfalto Litoral do Paraná" class="logo">
+                </div>
+                <div class="nav-title">
+                    <h1>NOTÍCIAS</h1>
+                    <p>Bodes do Asfalto - Litoral do Paraná</p>
+                </div>
+                <div class="nav-actions">
+                    <a href="index.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar ao Site
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-news">
+        <div class="hero-content">
+            <div class="logos-container">
+                <div class="logo-item">
+                    <img src="bodes_do_asfalto_logo_litoral_refined.png" alt="Logo Subsede Litoral" class="hero-logo">
+                    <span>Subsede Litoral</span>
+                </div>
+                <div class="logo-divider"></div>
+                <div class="logo-item">
+                    <a href="https://www.bodesdoasfalto.org.br/" target="_blank" class="logo-link">
+                        <img src="bodes_do_asfalto_logo_national_refined.png" alt="Logo Nacional" class="hero-logo">
+<a href="https://www.bodesdoasfalto.org.br/">Nacional</a>
+                    </a>
+                </div>
+            </div>
+            <h1 class="hero-title">ÚLTIMAS NOTÍCIAS</h1>
+            <p class="hero-subtitle">Acompanhe as novidades da nossa subsede</p>
+        </div>
+        <div class="hero-decoration">
+            <img src="bode_sem_fundo.png" alt="Bode Decorativo" class="decorative-goat">
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-list"></i>
+                    Todas
+                </button>
+                <button class="filter-btn" data-category="Eventos">
+                    <i class="fas fa-calendar"></i>
+                    Eventos
+                </button>
+                <button class="filter-btn" data-category="Ação Social">
+                    <i class="fas fa-heart"></i>
+                    Ação Social
+                </button>
+                <button class="filter-btn" data-category="Aniversário">
+                    <i class="fas fa-birthday-cake"></i>
+                    Aniversários
+                </button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar notícias...">
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="news-grid" id="newsGrid">
+                <!-- News will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Carregando notícias...</p>
+            </div>
+            
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>Nenhuma notícia encontrada</h3>
+                <p>Tente ajustar os filtros ou termos de busca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Modal -->
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span class="modal-date" id="modalDate"></span>
+                    <span class="modal-author" id="modalAuthor"></span>
+                    <span class="modal-category" id="modalCategory"></span>
+                </div>
+                <div class="modal-image" id="modalImageContainer" style="display: none;">
+                    <img id="modalImage" alt="">
+                </div>
+                <div class="modal-content-text" id="modalContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-share" onclick="shareNews()">
+                    <i class="fas fa-share"></i>
+                    Compartilhar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="bodes_do_asfalto_logo_litoral_refined.png" alt="Bodes do Asfalto Litoral do Paraná">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2025 Bodes do Asfalto - Subsede Litoral do Paraná. Todos os direitos reservados.</p>
+                    <p class="footer-motto">NÓS FAZEMOS POEIRA</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="noticias-script.js"></script>
+</body>
+</html>
