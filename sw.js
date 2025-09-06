@@ -6,7 +6,7 @@ const urlsToCache = [
   '/script.js',
   '/images/logo.png',
   '/images/hero-bg.jpg',
-  '/images/bode.png',
+  '/images/bode_sem_fundo.png',
   'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];

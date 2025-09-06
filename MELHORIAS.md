@@ -12,7 +12,7 @@
    - ❌ Removida: `bodes_do_asfalto_logo_national_refined.png`
    - ✅ Adicionada: `bodes_do_asfalto_logo_litoral_refined.png`
 
-3. **Seção Comando/Hierarquia Reestruturada**
+3. **Seção COORDENAÇÃO/Hierarquia Reestruturada**
    - ✅ **Coordenador** - Liderança da Subsede
    - ✅ **Coordenador Adjunto** - Apoio à Coordenação
    - ✅ **Secretário** - Documentação e Registros
@@ -58,9 +58,9 @@
 - ✅ CSS e JavaScript otimizados
 - ✅ Compressão de animações em hardware limitado
 
-## 🎯 Estrutura da Seção Comando
+## 🎯 Estrutura da Seção COORDENAÇÃO
 
-A nova seção de comando está estruturada para fácil personalização:
+A nova seção de COORDENAÇÃO está estruturada para fácil personalização:
 
 ```html
 <div class="command-member">

@@ -1,7 +1,7 @@
 {
   "name": "Bodes do Asfalto - Subsede Litoral do Paraná",
   "short_name": "Bodes do Asfalto",
-  "description": "Site oficial da Subsede Litoral do Paraná do Moto Clube Bodes do Asfalto. Conheça nossa história, comando e participe de nossos eventos.",
+  "description": "Site oficial da Subsede Litoral do Paraná do Moto Clube Bodes do Asfalto. Conheça nossa história, COORDENAÇÃO e participe de nossos eventos.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
@@ -79,9 +79,9 @@
       ]
     },
     {
-      "name": "Comando",
-      "short_name": "Comando",
-      "description": "Conheça nosso comando",
+      "name": "COORDENAÇÃO",
+      "short_name": "COORDENAÇÃO",
+      "description": "Conheça nosso COORDENAÇÃO",
       "url": "/#command",
       "icons": [
         {

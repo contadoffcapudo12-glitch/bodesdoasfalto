@@ -31,6 +31,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Timeline functionality
+function toggleTimelineContent(contentId) {
+    const content = document.getElementById(contentId);
+    const allContents = document.querySelectorAll('.timeline-content');
+    
+    // Close all other timeline contents
+    allContents.forEach(item => {
+        if (item.id !== contentId) {
+            item.classList.remove('active');
+        }
+    });
+    
+    // Toggle the clicked content
+    content.classList.toggle('active');
+}
+
 // Header background change on scroll
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
@@ -229,92 +245,7 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Gallery lightbox functionality
-document.querySelectorAll('.gallery-item img').forEach(img => {
-    img.addEventListener('click', () => {
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox';
-        lightbox.innerHTML = `
-            <div class="lightbox-content">
-                <img src="${img.src}" alt="${img.alt}">
-                <span class="lightbox-close">&times;</span>
-            </div>
-        `;
-        
-        lightbox.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-        
-        const content = lightbox.querySelector('.lightbox-content');
-        content.style.cssText = `
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-        `;
-        
-        const lightboxImg = lightbox.querySelector('img');
-        lightboxImg.style.cssText = `
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        `;
-        
-        const closeBtn = lightbox.querySelector('.lightbox-close');
-        closeBtn.style.cssText = `
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            background: rgba(255, 68, 68, 0.8);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        `;
-        
-        document.body.appendChild(lightbox);
-        
-        setTimeout(() => {
-            lightbox.style.opacity = '1';
-        }, 10);
-        
-        const closeLightbox = () => {
-            lightbox.style.opacity = '0';
-            setTimeout(() => {
-                document.body.removeChild(lightbox);
-            }, 300);
-        };
-        
-        closeBtn.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    });
-});
+
 
 // Add hover effects to navigation
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -812,6 +743,8 @@ function monitorPerformance() {
         }
     });
 }
+
+
 
 // Initialize all enhancements
 document.addEventListener('DOMContentLoaded', () => {

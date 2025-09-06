@@ -29,7 +29,7 @@ Você enviou 4 fotos dos membros da hierarquia:
 
 ### Passo 3: Verificar se Funcionou
 1. Abra o arquivo `index.html` no navegador
-2. Navegue até a seção **"COMANDO"**
+2. Navegue até a seção **"COORDENAÇÃO"**
 3. Você deve ver as fotos dos membros nos círculos
 4. Ao passar o mouse sobre as fotos, elas devem ter efeito de zoom e borda vermelha
 
